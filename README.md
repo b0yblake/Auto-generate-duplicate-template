@@ -15,6 +15,7 @@ Yarn gen
 
 > This example for this structure:
 
+```
 ├── public/
 └── src /
     ├── containers/
@@ -26,6 +27,7 @@ Yarn gen
             ├── Loading
             ├── Services
             ├── style
+```
 
 </details>
 
