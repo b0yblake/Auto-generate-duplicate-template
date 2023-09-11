@@ -1,0 +1,8 @@
+    {{#if isProtectedRoute}}
+        <ProtectedRoute
+    {{else}}
+        <Route
+    {{/if}}
+          path={path.{{~upperCase name~}} }
+          component={ {{~properCase name~}}Page}
+        />

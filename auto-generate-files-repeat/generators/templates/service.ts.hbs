@@ -1,0 +1,14 @@
+import { AxiosResponse } from 'axios';
+import BaseService from './BaseService';
+import { Request } from '../types/Requests';
+import { Response } from '../types/Responses';
+
+const BASE_URL = '/api/v1';
+
+const {{ camelCase name }} = (data: Request): Promise<AxiosResponse<Response>> => {
+  return BaseService.post(`${BASE_URL}/{{ apiPath }}`, data);
+};
+
+export default {
+  {{ camelCase name }},
+};

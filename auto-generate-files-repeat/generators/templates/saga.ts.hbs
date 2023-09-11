@@ -1,0 +1,40 @@
+import { PayloadAction } from '@reduxjs/toolkit';
+import {
+  put,
+  takeEvery,
+} from 'redux-saga/effects';
+import { setErrorMessages, setSuccessMessages } from '../Global/reducer';
+import {{ properCase name }}Service from '../../services/{{ properCase name }}Service';
+import { STATUS_CODE } from '../../constants/common';
+import { Request } from '../../types/Requests';
+import { {{ camelCase requestName }}Request, {{ camelCase requestName }}Success, {{ camelCase requestName }}Fail } from './reducer';
+
+function* {{ camelCase requestName }}Flow(data: PayloadAction<Request>) {
+  try {
+    const response = yield {{ properCase name }}Service.{{ camelCase name }}(data.payload);
+    const header = response.headers['x-auth-token'];
+    if (response.status === STATUS_CODE.SUCCESS) {
+      const { type } = {{ camelCase requestName }}Success;
+      yield put({
+        type,
+        header,
+        payload: response.data,
+      });
+      yield put({ type: setSuccessMessages.type, payload: ['Login success.'] });
+    } else {
+      yield put({ type: {{ camelCase requestName }}Fail.type });
+    }
+  } catch (error) {
+    yield put({
+      type: setErrorMessages.type,
+      payload: [error.response.data.message],
+    });
+    yield put({ type: {{ camelCase requestName }}Fail.type, payload: error.response.data.message });
+  }
+}
+
+function* {{ camelCase name }}Watcher() {
+  yield takeEvery({{ camelCase requestName }}Request, {{ camelCase requestName }}Flow);
+}
+
+export default {{ camelCase name }}Watcher;

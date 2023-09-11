@@ -1,0 +1,36 @@
+
+import { createSlice } from '@reduxjs/toolkit';
+import { REQUEST_STATUS } from '../../constants/common';
+
+export const slice = createSlice({
+  name: '{{camelCase name}}Store',
+  initialState: {
+    posts: [],
+    {{ camelCase requestName }}Status: REQUEST_STATUS.IDLE,
+  },
+  reducers: {
+    {{#if requestName}}
+    {{ camelCase requestName }}Request: (state, action) => {
+      if (action) state.{{ camelCase requestName }}Status = REQUEST_STATUS.REQUESTING;
+    },
+    {{ camelCase requestName }}Success: (state, action) => {
+      if (action) state.{{ camelCase requestName }}Status = REQUEST_STATUS.SUCCESS;
+    },
+    {{ camelCase requestName }}Fail: (state, action) => {
+      if (action) state.{{ camelCase requestName }}Status = REQUEST_STATUS.ERROR;
+    },
+    {{/if}}
+  },
+});
+
+export const {
+  {{#if requestName}}
+  {{ camelCase requestName }}Request,
+  {{ camelCase requestName }}Success,
+  {{ camelCase requestName }}Fail,
+  {{/if}}
+} = slice.actions;
+
+export const select{{properCase name}}Store = (state: any) => state.{{camelCase name}}Store;
+
+export default slice.reducer;

@@ -1,0 +1,17 @@
+{
+  "name": "auto-generate-files-repeat",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "gen": "plop --plopfile generators/index.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "plop": "^4.0.0"
+  }
+}

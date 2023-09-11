@@ -1,0 +1,17 @@
+import React from 'react';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { select{{properCase name}}Store } from './reducer';
+import Wrapper from './styles';
+
+function {{properCase name}}Page() {
+  const reduxState = useAppSelector(select{{properCase name}}Store);
+  const dispatch = useAppDispatch();
+
+  return (
+    <Wrapper>
+      {{properCase name}} is generated.
+    </Wrapper>
+  );
+}
+
+export default React.memo({{properCase name}}Page);
