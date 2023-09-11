@@ -1,11 +1,9 @@
-const adminGenerator = require('./forAdmin');
-const frontendGenerator = require('./forFrontend');
+const mainGenerator = require('./forMain');
 const actionConsole = require('./utils/actionConsole');
 const { METHOD } = require('./constants');
 
 module.exports = plop => {
-  plop.setGenerator('Create a new admin container ?', adminGenerator);
-  // plop.setGenerator('Create a new frontend container ?', frontendGenerator);
+  plop.setGenerator('Create a new main container ?', mainGenerator);
   plop.setActionType('console', actionConsole);
   plop.setHelper('keyOfMethod', function (methodValue) {
     for (let key in METHOD) {

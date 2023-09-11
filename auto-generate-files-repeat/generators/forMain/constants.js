@@ -3,7 +3,7 @@ module.exports = {
   componentFolder: 'components/',
   serviceFolder: 'services/',
   requestFolder: 'request/',
-  adminSrcPath: 'packages/admin/src/',
+  adminSrcPath: 'src/',
   PROTECTED_ROUTE: 'PROTECTED_ROUTE',
   PUBLIC_ROUTE: 'PUBLIC_ROUTE',
 };
